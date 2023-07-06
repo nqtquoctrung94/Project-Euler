@@ -47,4 +47,4 @@ class ProjectEuler_Notebook():
         self._fill_content()
         nbf.write(self.notebook, fr'in_progress\{self.title}.ipynb')
 
-ProjectEuler_Notebook(8).create()
+ProjectEuler_Notebook(10).create()
