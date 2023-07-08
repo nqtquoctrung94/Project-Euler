@@ -65,7 +65,7 @@ class ProjectEuler_Notebook():
 
     def create(self):
         self._fill_content()
-        nbf.write(self.notebook, fr'in_progress\{self.name}.ipynb')
-        print(f"Successfully created notebook {self.name}")
+        nbf.write(self.notebook, fr'python-solutions\{self.name}.ipynb')
+        print(f"Successfully created notebook {self.name}.ipynb")
 
-ProjectEuler_Notebook(15).create()
+ProjectEuler_Notebook(19).create()

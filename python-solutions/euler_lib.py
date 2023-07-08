@@ -26,6 +26,11 @@ def divisors_list(n: int) -> Iterator[int]:
                 yield i
                 yield n//i
 
+def factorial(n: int) -> int:
+    if n < 2:
+        return 1
+    return n*factorial(n-1) 
+
 def is_even(n: int) -> bool:
     """This function check if number is even or not. By using result of n % 2 == 0"""
     return (n % 2 == 0)
