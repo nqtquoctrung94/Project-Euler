@@ -81,6 +81,18 @@ def one_to_n_square_sum(n: int) -> int:
     Proof: https://proofwiki.org/wiki/Sum_of_Sequence_of_Squares"""
     return n*(n+1)*(2*n+1) // 6
 
+def proper_divisors_list(n: int) -> Iterator[int]:
+    """This function return the proper divisors of n (number less than n which divide evenly into n)"""
+    yield 1
+    for i in range(2, math.isqrt(n) + 1):
+        if n % i == 0:
+            if i * i == n:
+                yield i
+            else:
+                yield i
+                yield n//i
+
+
 def sieve_of_eratosthenes(limit: int) -> list:
     """Ref: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
     Ref 2: https://t5k.org/glossary/page.php?sort=SieveOfEratosthenes
