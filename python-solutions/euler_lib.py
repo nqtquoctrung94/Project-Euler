@@ -117,7 +117,7 @@ def is_even(n: int) -> bool:
     return (n % 2 == 0)
 
 
-def is_panlindromic(n: int) -> bool:
+def is_palindromic(n: int) -> bool:
     """This function check if number n is panlidromic
     - Turn n into string
     - Create reverse_n, ref: https://www.w3schools.com/python/python_howto_reverse_string.asp
