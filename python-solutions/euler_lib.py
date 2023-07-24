@@ -127,6 +127,13 @@ def is_palindromic(n: int) -> bool:
     reverse_n = string_n[::-1]    
     return (string_n == reverse_n)
 
+def is_pentagonal_number(n: int) -> bool:
+    """Ref: https://en.wikipedia.org/wiki/Pentagonal_number#Tests_for_pentagonal_numbers
+    This function return if input number is a pentagonal number"""
+    if n < 1:
+        return False
+    x = (math.sqrt(24*n + 1)+1)/6
+    return x.is_integer()
 
 def is_prime(n: int) -> bool:
     """Ref: https://en.wikipedia.org/wiki/Primality_test#Python
@@ -145,6 +152,23 @@ def is_prime(n: int) -> bool:
             return False
     return True
 
+def is_square(n: int) -> bool:
+    """This function return if input number is square"""
+    if n < 2:
+        return n >= 0
+    rounded_square_n = math.isqrt(n)
+    return rounded_square_n**2 == n
+
+def is_triangular_number(n: int) -> bool:
+    """Ref: https://en.wikipedia.org/wiki/Triangular_number#Triangular_roots_and_tests_for_triangular_numbers
+    This function will check if a number is a triangular number:
+    
+    Triangular number T is defined as: 
+    T(n) = 1 + 2 + 3 + ... + n = n*(n+1)/2
+
+    This function use Triangular test such that: T(n) = x => 8x + 1 is a square
+    """
+    return is_square(8*n+1)
 
 def least_common_multiple(a:int, b:int) -> int:
 	"""This function return Least Common Multiple of a and b
@@ -185,6 +209,13 @@ def proper_divisors_sum_list(limit: int) -> list:
             sum_list[index] += divisor
             index += divisor
     return sum_list
+
+def s_gonal_number(side: int, index: int) -> int:
+    """ This function return the Polygonal number, given side and index
+    Input: side, index, with side >= 2, index >= 1
+    Output: P(side,index)
+    Ref: https://en.wikipedia.org/wiki/Polygonal_number"""
+    return (side - 2)*(index*(index-1)//2) + index
 
 def sieve_of_eratosthenes(limit: int) -> list:
     """Ref: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
