@@ -56,7 +56,7 @@ class ProjectEuler_Notebook():
 
             # Solution 
             nbf.v4.new_markdown_cell("# Solution"),
-            nbf.v4.new_code_cell("def solution():\n\tpass"),
+            nbf.v4.new_code_cell("def solution():\n    pass"),
 
             # Run and check
             nbf.v4.new_markdown_cell("# Run"),
@@ -68,4 +68,4 @@ class ProjectEuler_Notebook():
         nbf.write(self.notebook, fr'python-solutions\{self.name}.ipynb')
         print(f"Successfully created notebook {self.name}.ipynb")
 
-ProjectEuler_Notebook(67).create()
+ProjectEuler_Notebook(68).create()
