@@ -63,16 +63,16 @@ def fibonacci_iteractive(position: int) -> int:
 
 
 def fibonacci_recursive(position: int) -> int:
-    """This function take in the position and return the Fibonacci number at that position using for recursive"""
+    """This function return the Fibonacci number at nth position using for recursive"""
     if position <= 1:
         return position # fib(0) = 0 and fib(1) = 1
     return fibonacci_recursive(position-1) + fibonacci_recursive(position-2)
 
 
 def fibonacci_matrix(position: int) -> int:
-    """This function take in the position and return the Fibonacci number at that position using the power of matrix
+    """This function return the Fibonacci number at nth position using the power of matrix
     Reading: https://www.geeksforgeeks.org/matrix-exponentiation/
-    There is still some error in the function which I don't why
+    There are still some errors in the function which I don't know why
     """
     def multiply_matrix(matrix_a:list, matrix_b:list) -> list:
         # Create an auxiliary matrix to store elements after multiply
