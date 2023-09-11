@@ -236,3 +236,16 @@ def sieve_of_eratosthenes(limit: int) -> list:
     # Ramaining True indices are prime numbers
     return [i for i in range(2, len(num_list)) if num_list[i] == True]
 
+
+def totient_n(n, prime_list):
+    result = n
+    for prime in prime_list:
+        if prime * prime > n:
+            break
+        if n % prime == 0:
+            while n % prime == 0:
+                n //= prime
+            result -= result // prime   # Or  result = result * (prime - 1) // prime
+    if n > 1:
+        result -= result // n           # Or  result = result * (n - 1) // n
+    return result
