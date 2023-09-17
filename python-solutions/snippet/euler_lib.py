@@ -342,15 +342,50 @@ def sieve_of_eratosthenes(limit: int) -> list:
     return [i for i in range(2, len(num_list)) if num_list[i] == True]
 
 
-def totient_n(n, prime_list):
+def totient_1_to_n(n:int) -> list:
+    """ Create the list of totient numbers from 1 to n.
+    The idea is based on Sieve of Eratosthenes.
+    
+    Reading: https://cp-algorithms.com/algebra/phi-function.html#etf_1_to_n
+    """
+    phi = [i for i in range(n+1)]
+
+    for i in range(2, n+1):
+        if phi[i] == i:
+            for j in range(i, n+1, i):
+                phi[j] -= phi[j] // i
+
+    return phi
+
+
+def totient_n(n):
+    """ Compute Euler's totient function (phi function) for a given number n.
+
+    Reading list:
+    - https://mathworld.wolfram.com/TotientFunction.html
+    - https://en.wikipedia.org/wiki/Euler%27s_totient_function
+    - https://cp-algorithms.com/algebra/phi-function.html#implementation
+    """
     result = n
-    for prime in prime_list:
-        if prime * prime > n:
+
+    # Check division by 2
+    if n % 2 == 0:
+        while n % 2 == 0:
+            n //= 2
+        result -= result // 2
+
+    # Check division by odd numbers
+    i = 3
+    while True:
+        if i*i > n:
             break
-        if n % prime == 0:
-            while n % prime == 0:
-                n //= prime
-            result -= result // prime   # Or  result = result * (prime - 1) // prime
+        if n % i == 0:
+            while n % i == 0:
+                n //= i
+            result -= result // i   # Or result = result * (i - 1) // i
+        i += 2
+
+    # If n is still > 1 => n is prime
     if n > 1:
-        result -= result // n           # Or  result = result * (n - 1) // n
+        result -= result // n       # Or result = result * (n - 1) // n
     return result
