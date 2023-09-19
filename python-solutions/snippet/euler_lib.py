@@ -204,6 +204,7 @@ def is_palindromic(n: int) -> bool:
     reverse_n = string_n[::-1]    
     return (string_n == reverse_n)
 
+
 def is_pentagonal_number(n: int) -> bool:
     """This function return if input number is a pentagonal number
     Reading: https://en.wikipedia.org/wiki/Pentagonal_number#Tests_for_pentagonal_numbers
@@ -212,6 +213,7 @@ def is_pentagonal_number(n: int) -> bool:
         return False
     x = (math.sqrt(24*n + 1)+1)/6
     return x.is_integer()
+
 
 def is_prime(n: int) -> bool:
     """ This function check if input number n is prime or not
@@ -308,6 +310,13 @@ def proper_divisors_sum_list(limit: int) -> list:
             sum_list[index] += divisor
             index += divisor
     return sum_list
+
+
+def reduced_fraction(a:int, b:int) -> tuple[int, int]:
+    common_divisor = greatest_common_divisor_recursive(a,b)
+    if common_divisor == 1:
+        return a,b
+    return a//common_divisor, b//common_divisor
 
 
 def s_gonal_number(side: int, index: int) -> int:
