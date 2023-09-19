@@ -53,6 +53,20 @@ def factorial_recursive(n: int) -> int:
     return n*factorial_recursive(n-1) 
 
 
+def farey_sequence(n:int) -> Iterator[tuple[int, int]]:
+    """Print the n'th Farey sequence.
+    
+    Reading: https://en.wikipedia.org/wiki/Farey_sequence#Next_term
+    """
+    a,b = 0,1
+    c,d = 1,n
+
+    while c <= n:
+        k = (n + b) // d
+        a, b, c, d = c, d, k*c-a, k*d-b
+        yield((a,b))
+
+
 def fibonacci_iteractive(position: int) -> int:
     """This function return the Fibonacci number at nth position using for loop"""
     a = 1
