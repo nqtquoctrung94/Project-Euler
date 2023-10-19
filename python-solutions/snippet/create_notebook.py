@@ -68,4 +68,4 @@ class ProjectEuler_Notebook():
         nbf.write(self.notebook, fr'python-solutions\{self.name}.ipynb')
         print(f"Successfully created notebook {self.name}.ipynb")
 
-ProjectEuler_Notebook(73).create()
+ProjectEuler_Notebook(75).create()
