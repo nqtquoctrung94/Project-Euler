@@ -196,10 +196,24 @@ def greatest_common_divisor_recursive(a: int, b: int) -> int:
     """ This function find GCD of a and b using Euclidean recursive algorithm.
     Reading: https://en.wikipedia.org/wiki/Greatest_common_divisor#Euclidean_algorithm
     """
-    if b == 0:
-        return a
-    else:
-        return greatest_common_divisor_recursive(b, a % b)
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+    ## Old method, remove multiple function call
+    # if b == 0:
+    #     return a
+    # else:
+    #     return greatest_common_divisor_recursive(b, a % b)
+
+
+def is_coprime(a: int, b: int) -> bool:
+    return greatest_common_divisor_recursive(a, b) == 1
+
+    ## Old recursive method
+    # if b != 0:
+    #     return is_coprime(b, a%b)
+    # return a == 1
 
 
 def is_even(n: int) -> bool:
